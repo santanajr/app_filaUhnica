@@ -1,0 +1,16 @@
+<div>
+  <ul>
+
+<!--
+    <li *ngFor="let booklist of dadosColection | async">
+      {{booklist.$key}} : {{ booklist.IdEstabelecimento }} : {{ booklist.NomeEstabelecimento }}
+    </li>
+  -->
+    <li *ngFor="let booklist of dadosColectionKey | async">
+      {{booklist.key}} : {{ booklist.IdEstabelecimento }} : {{ booklist.NomeEstabelecimento }}
+    </li>
+
+
+
+  </ul>
+</div>

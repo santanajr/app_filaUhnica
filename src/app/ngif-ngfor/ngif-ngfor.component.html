@@ -1,0 +1,21 @@
+<p>
+  ngif-ngfor works!
+</p>
+
+
+  <input type="text" (input)=   "ObterNumero(  $event.target.value )" />
+{{numero}}
+<h1 *ngIf="numero > 5">Essa número é maior que 5</h1>
+<h1 *ngIf="numero <= 5">Essa número é menor que 5</h1>
+
+Números maiores que 5:
+<div *ngFor="let n of arrNumeros">
+<h1 *ngIf="n > 5" >
+  {{ n }}
+</h1>
+</div>
+
+
+<h1 *ngFor="let n of arrNumeros"> {{ n }} </h1>
+
+<h1 *ngFor="let nom of arrNomes"> {{ nom }} </h1>

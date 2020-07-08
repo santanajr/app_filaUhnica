@@ -1,0 +1,71 @@
+<div class="container">
+
+  <div class="row">
+    <div class="jumbotron">
+       <h2>{{dadosEstabelecimentoLogado.NomeEstabelecimento}}</h2>
+
+       <h5 *ngIf="totalatendimentoativosnafilaaberta > 0" >Você possui {{totalatendimentoativosnafilaaberta}} atendimento a serem feitos hoje.</h5>
+       <h5 *ngIf="totalatendimentoativosnafilaaberta <= 0">Você não possui atendimento para hoje.</h5>
+
+
+    <!--   <h5>Tamanho Máximo {{dadosEstabelecimentoLogado.TamanhoMaximoFila}} registros na fila.</h5>
+        <h5>Tempo Médio de atendimento deve ser {{dadosEstabelecimentoLogado.TempoMedio}} min/atendimento.</h5>
+
+        <h5 *ngIf="dadosEstabelecimentoLogado.PossuiFila == 'S'"> Status Atendimento : Aberta </h5>
+        <h5 *ngIf="dadosEstabelecimentoLogado.PossuiFila == 'N'"> Status Atendimento : Fechada </h5>
+
+        <h5 *ngIf="dadosEstabelecimentoLogado.PausaFilsa == 'S'"> Status Pausa  : Ativo     </h5>
+        <h5 *ngIf="dadosEstabelecimentoLogado.PausaFilsa !== 'S'"> Status Pausa : DesAtivo  </h5>
+
+        <h5 *ngIf="dadosEstabelecimentoLogado.BloqueioFila == 'S'"> Status Bloqueio : Ativo </h5>
+        <h5 *ngIf="dadosEstabelecimentoLogado.BloqueioFila !== 'S'"> Status Bloqueio : DesAtivo </h5>
+-->
+        <div *ngIf="dadosEstabelecimentoLogado.PossuiFila == 'N'" >
+            <a class="btn btn-primary btn-lg" (click)="ComecarDia()"
+             role="button"> Começar Dia Atendimento </a>
+        </div>
+        <div *ngIf="dadosEstabelecimentoLogado.PossuiFila == 'S'" >
+          <a class="btn btn-danger btn-lg" (click)="EncerrarDia()"
+          role="button"> Encerrar Dia Atendimento </a>
+        </div>
+
+      </div>
+  </div>
+
+  <div *ngIf="PrimeiroAtendimento !== undefined" class="alert alert-info" role="alert">
+     <div class="row">
+        <strong>  Nome : </strong>  {{ PrimeiroAtendimento.NomeSolicitante }}
+        <strong>  Serviço : </strong> {{ PrimeiroAtendimento.Descricao }}
+        <strong>  Celular : </strong> {{ PrimeiroAtendimento.Celular }}
+      <a *ngIf="PrimeiroAtendimento.AtendimentoAtual !== 'S'"  class="btn btn-success pull-right" (click)="Atendimento()" role="button"> Abrir Atendimento </a>
+      <a *ngIf="PrimeiroAtendimento.AtendimentoAtual == 'S'"  class="btn btn-primary pull-right" (click)="Atendido()" role="button"> Encerrar Atendido </a>
+
+    </div>
+  </div>
+
+  <div *ngIf="SegundoAtendimento !== undefined"  class="alert alert-danger" role="alert">
+    <div class="row">
+      <strong>  Nome : </strong>  {{ SegundoAtendimento.NomeSolicitante }}
+      <strong>  Serviço : </strong> {{ SegundoAtendimento.Descricao }}
+      <strong>  Celular : </strong> {{ SegundoAtendimento.Celular }}
+   </div>
+</div>
+
+<!--
+    <div *ngIf="dadosEstabelecimentoLogado.BloqueioFila !== 'S'" >
+      <a class="btn btn-primary pull-right btn-lg" (click)="BloqueioFila()" role="button"> Bloqueio Entrada Fila </a>
+    </div>
+    <div *ngIf="dadosEstabelecimentoLogado.BloqueioFila == 'S'" >
+      <a class="btn btn-primary pull-right btn-lg" (click)="DesBloqueioFila()" role="button"> DesBloqueio Entrada Fila </a>
+    </div>
+
+    <div *ngIf="dadosEstabelecimentoLogado.PausaFilsa !== 'S'" >
+        <a class="btn btn-warning pull-left btn-lg" (click)="PausarDia()" role="button"> Pausa de Atendimento </a>
+    </div>
+
+    <div *ngIf="dadosEstabelecimentoLogado.PausaFilsa == 'S'" >
+      <a class="btn btn-warning pull-left btn-lg" (click)="DesPausarDia()" role="button"> Voltar Atendimento </a>
+    </div>
+-->
+
+</div>
